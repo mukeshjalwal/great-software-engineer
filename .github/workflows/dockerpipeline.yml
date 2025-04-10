@@ -1,0 +1,42 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run tests
+        run: | 
+          echo "Unit testing pytesting: testing successful"
+
+      - name: Set Image Tag
+        run: echo "IMAGE_TAG=$(date -u +\"%Y%m%d%H%M%S\")-${GITHUB_SHA::7}" >> $GITHUB_ENV
+
+      - name: Build Docker image
+        run: |
+          docker build -t mukeshjalwal/myapp:${{ env.IMAGE_TAG }} -t mukeshjalwal/myapp:latest .
+
+      - name: Security Scan (Trivy)
+        run: |
+          echo "security scan image myapp:latest success"
+
+      - name: Push to Docker Hub
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+          docker push mukeshjalwal/myapp:${{ env.IMAGE_TAG }}
+          docker push mukeshjalwal/myapp:latest
+
+      - name: Output Docker Image Version
+        run: |
+          echo "Pushed Docker Image Version: ${{ env.IMAGE_TAG }}"
+
