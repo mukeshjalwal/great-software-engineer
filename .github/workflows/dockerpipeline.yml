@@ -21,11 +21,11 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t mukeshjalwal/myapp:${{ env.IMAGE_TAG }} -t mukeshjalwal/myapp:latest .
+          docker build -t mukeshjalwal/great-software-engineer:${{ env.IMAGE_TAG }} -t mukeshjalwal/great-software-engineer:latest .
 
       - name: Security Scan (Trivy)
         run: |
-          echo "security scan image myapp:latest success"
+          echo "security scan image great-software-engineer:latest success"
 
       - name: Push to Docker Hub
         env:
@@ -33,8 +33,8 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
           echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-          docker push mukeshjalwal/myapp:${{ env.IMAGE_TAG }}
-          docker push mukeshjalwal/myapp:latest
+          docker push mukeshjalwal/great-software-engineer:${{ env.IMAGE_TAG }}
+          docker push mukeshjalwal/great-software-engineer:latest
 
       - name: Output Docker Image Version
         run: |
