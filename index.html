@@ -1,27 +1,93 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>I'm a Great Software Engineer</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: linear-gradient(to right, #00c6ff, #0072ff);
-      color: white;
-      text-align: center;
-    }
-    h1 {
-      font-size: 3em;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>I’m a Great Software Engineer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 50px 0;
+        }
+        header img {
+            width: 120px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        section {
+            padding: 20px;
+            background-color: #ffffff;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 36px;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .badge {
+            margin: 5px;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-  <h1>🔥 I'm a Great Software Engineer 🔥<br>Hire me. Thank me later.</h1>
-</body>
-</html>
 
+<header>
+    <img src="your-image.jpg" alt="Mukesh Jalwal">
+    <h1>🔥 I’m a Great Software Engineer. 🔥</h1>
+    <p>Hire me. Thank me later.</p>
+</header>
+
+<section>
+    <h2>What's Inside?</h2>
+    <ul>
+        <li>A minimal, stylish <code>index.html</code> homepage</li>
+        <li>A lightweight Nginx server to host it</li>
+        <li>A Dockerfile that wraps it all up into a deployable container</li>
+    </ul>
+</section>
+
+<section>
+    <h2>How to Run It</h2>
+    <ol>
+        <li>Clone the repo:
+            <pre><code>git clone https://github.com/mukeshjalwal/great-software-engineer.git
+cd great-software-engineer</code></pre>
+        </li>
+        <li>Build the Docker image:
+            <pre><code>docker build -t mukeshjalwal/great-software-engineer .</code></pre>
+        </li>
+        <li>Run the container:
+            <pre><code>docker run -d -p 8080:80 mukeshjalwal/great-software-engineer</code></pre>
+        </li>
+        <li>Open your browser and go to:
+            <pre><code>http://localhost:8080</code></pre>
+        </li>
+    </ol>
+</section>
+
+<section>
+    <h2>Docker Hub</h2>
+    <p>Pull the pre-built image:</p>
+    <pre><code>docker pull mukeshjalwal/great-software-engineer</code></pre>
+    <p><a href="https://hub.docker.com
